@@ -23,3 +23,11 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.card-element {
+  @apply bg-white p-[12px] rounded border border-gray-400 dark:border-gray-700 dark:bg-gray-800 transition-colors duration-300 mb-4;
+}
+
+.address-element {
+  @apply bg-white p-[12px] rounded dark:bg-gray-800 transition-colors duration-300 mb-4;
+}

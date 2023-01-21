@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader, CardFooter } from './Card';
 import ContentContainer from './ContentContainer';
 import Spinner from './Spinner';
 import PrismListener from './PrismListener';
+import PaymentForm from './PaymentForm/PaymentForm';
 
 export {
   AppRoutes,
@@ -20,5 +21,6 @@ export {
   Card,
   PrismListener,
   ContentContainer,
-  Spinner
+  Spinner,
+  PaymentForm
 };

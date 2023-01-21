@@ -19,7 +19,8 @@ const navigation = [
   { name: 'My Designs', href: '/designs', current: false },
   { name: 'Example', href: '/example', current: false },
   { name: 'Inspiration', href: '/inspiration', current: false },
-  { name: 'Editor', href: '/editor' }
+  { name: 'Editor', href: '/editor' },
+  { name: 'Pay', href: '/pay', current: false }
 ];
 
 const userNavigation = [

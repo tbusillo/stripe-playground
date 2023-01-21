@@ -28,6 +28,9 @@
     "isolatedModules": true,
     "jsx": "react-jsx",
     "incremental": true,
+    "declaration": true,
+    "declarationMap": true,
+    "outDir": "./dist",
     "types": [
       "node",
       "mdx",
@@ -39,6 +42,10 @@
       "vitest/globals"
     ]
   },
-  "include": ["./src", "**/*.ts", "**/*.tsx", "**/*.d.ts"],
-  "exclude": ["node_modules"]
+  "include": ["./src", "**/*.ts", "**/*.tsx", "**/*.d.ts", "./server/*.ts"],
+  "exclude": ["node_modules"],
+  "ts-node": {
+    "esm": true,
+    "experimentalSpecifierResolution": "node"
+  }
 }

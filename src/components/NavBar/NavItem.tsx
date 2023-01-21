@@ -4,9 +4,10 @@ import { Link } from 'react-router-dom';
 type NavItemProps = {
   name: string;
   href: string;
+  children: React.ReactNode;
 };
 
-export default function NavItem({ name, href }: NavItemProps) {
+export default function NavItem({ name, href, children }: NavItemProps) {
   const isCurrent = window.location.pathname === href;
   return (
     <Link
@@ -20,7 +21,7 @@ export default function NavItem({ name, href }: NavItemProps) {
       )}
       aria-current={isCurrent ? 'page' : undefined}
     >
-      {name}
+      {children}
     </Link>
   );
 }

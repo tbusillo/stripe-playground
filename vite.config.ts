@@ -4,6 +4,7 @@
 import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react';
 import tsconfigPaths from 'vite-tsconfig-paths';
+import mdx from '@mdx-js/rollup';
 //@ts-ignore
 import postcss from './postcss.config.js';
 import remarkGfm from 'remark-gfm';
@@ -21,7 +22,7 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import eslintPlugin from 'vite-plugin-eslint';
 
 export default defineConfig(async (ConfigEnv) => {
-  const mdx = await import('@mdx-js/rollup');
+  // const mdx = await import('@mdx-js/rollup');
   const env = loadEnv(ConfigEnv.mode, process.cwd(), '');
   return {
     root: './',
@@ -62,13 +63,12 @@ export default defineConfig(async (ConfigEnv) => {
     },
     plugins: [
       react(),
-      mdx.default({
+      mdx({
         remarkPlugins: [
           remarkGfm,
           remarkToc,
           remarkMdx,
           remarkImages,
-          remarkGithub,
           remarkFrontmatter,
           remarkCodeFrontmatter
         ],
