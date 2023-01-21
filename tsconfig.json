@@ -1,0 +1,44 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "rootDirs": ["."],
+    "target": "ESNext",
+    "module": "ESNext",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "paths": {
+      "components": ["./src/components/*"],
+      "docs": ["./src/docs*"],
+      "assets/*": ["./src/assets*"],
+      "layouts/*": ["./src/layouts*"],
+      "contexts/*": ["./src/contexts*"],
+      "utils/*": ["./src/utils*"],
+      "tests/*": ["./src/test*"],
+      "@*": ["./src/*"]
+    },
+    "sourceMap": true,
+    "allowJs": false,
+    "skipLibCheck": false,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "incremental": true,
+    "types": [
+      "node",
+      "mdx",
+      "react",
+      "react-dom",
+      "react-router",
+      "react-router-dom",
+      "vitest",
+      "vitest/globals"
+    ]
+  },
+  "include": ["./src", "**/*.ts", "**/*.tsx", "**/*.d.ts"],
+  "exclude": ["node_modules"]
+}

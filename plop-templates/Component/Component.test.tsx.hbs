@@ -1,0 +1,11 @@
+import { describe, expect, it } from 'vitest';
+import { render, screen, userEvent } from '@/utils/test-utils';
+import {{pascalCase name}} from '@';
+
+describe('{{pascalCase name}}', () => {
+  test('renders a {{pascalCase name}} wrapping element', () => {
+    const component = render(<{{pascalCase name}} />);
+
+    expect(component).toBeInTheDocument;
+  });
+});

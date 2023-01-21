@@ -1,0 +1,6 @@
+/dist
+/node_modules
+/coverage
+*.hbs
+.eslintrc.json
+.eslintrc
