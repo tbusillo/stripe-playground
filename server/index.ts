@@ -31,7 +31,7 @@ const context: Context = {
   logger: logger
 };
 
-async function main(context?: Context): Promise<void> {
+async function main(context: Context): Promise<void> {
   logger.info('main() started');
 
   try {

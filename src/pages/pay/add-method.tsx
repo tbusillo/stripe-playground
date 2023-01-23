@@ -49,7 +49,9 @@ const Pay = () => {
   return (
     <div className='h-screen px-12 bg-white py-6 px-8'>
       <h1 className='text-xl font-semibold'>Payment</h1>
-      <Outlet />
+      <Elements stripe={stripePromise} options={{ clientSecret: clientSecret }}>
+        <PaymentForm clientSecret={clientSecret} />
+      </Elements>
       <h2 className='text-lg font-semibold my-4'>Debugging</h2>
       <p>
         <strong>Client secret:</strong>{' '}
