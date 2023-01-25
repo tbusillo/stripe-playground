@@ -42,7 +42,14 @@
       "vitest/globals"
     ]
   },
-  "include": ["./src", "**/*.ts", "**/*.tsx", "**/*.d.ts", "./server/*.ts"],
+  "include": [
+    "./src",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.d.ts",
+    "./server/*.ts",
+    "./types/stripe.d.ts"
+  ],
   "exclude": ["node_modules"],
   "ts-node": {
     "esm": true,

@@ -14,7 +14,6 @@ specifiers:
   '@mdx-js/rollup': ^2.1.2
   '@monaco-editor/react': ^4.4.6
   '@stripe/react-stripe-js': ^1.16.4
-  '@stripe/stripe-js': ^1.46.0
   '@tailwindcss/forms': ^0.5.2
   '@tailwindcss/typography': ^0.5.2
   '@teensy/logger': link:/Users/fatalv1rus/dev/teensy-logger
@@ -104,8 +103,7 @@ dependencies:
   '@mdx-js/mdx': 2.2.1
   '@mdx-js/rollup': 2.1.2_rollup@2.79.1
   '@monaco-editor/react': 4.4.6_6vrjaj6ridxbohi43n7zt4gn7q
-  '@stripe/react-stripe-js': 1.16.4_keartrz7uyerl3wkpjpue4xbhy
-  '@stripe/stripe-js': 1.46.0
+  '@stripe/react-stripe-js': 1.16.4_biqbaboplfbrettd7655fr4n2y
   '@tailwindcss/forms': 0.5.2_tailwindcss@3.2.4
   '@tailwindcss/typography': 0.5.2_tailwindcss@3.2.4
   '@teensy/logger': link:../teensy-logger
@@ -2227,21 +2225,16 @@ packages:
     dependencies:
       '@sinonjs/commons': 1.8.3
 
-  /@stripe/react-stripe-js/1.16.4_keartrz7uyerl3wkpjpue4xbhy:
+  /@stripe/react-stripe-js/1.16.4_biqbaboplfbrettd7655fr4n2y:
     resolution: {integrity: sha512-x+Zstd3mHctNbSATOdbA2rOVXqGhbLU1ziNgcWqYCaFXj2dPKzjkBiUJfDhoARJVXVGOts0oZ8teTkOFY/ZRzQ==}
     peerDependencies:
       '@stripe/stripe-js': ^1.44.1
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
     dependencies:
-      '@stripe/stripe-js': 1.46.0
       prop-types: 15.8.1
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
-    dev: false
-
-  /@stripe/stripe-js/1.46.0:
-    resolution: {integrity: sha512-dkm0zCEoRLu5rTnsIgwDf/QG2DKcalOT2dk1IVgMySOHWTChLyOvQwMYhEduGgLvyYWTwNhAUV4WOLPQvjwLwA==}
     dev: false
 
   /@tailwindcss/forms/0.5.2_tailwindcss@3.2.4:

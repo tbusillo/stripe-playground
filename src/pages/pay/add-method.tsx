@@ -12,7 +12,7 @@ const stripePromise = loadStripe(
   }
 );
 
-const Pay = () => {
+const AddMethod = () => {
   const [mounted, setMounted] = useState(false);
   const [clientSecret, setClientSecret] =
     useState<Stripe.PaymentIntent['client_secret']>(null);
@@ -61,4 +61,4 @@ const Pay = () => {
   );
 };
 
-export default Pay;
+export default AddMethod;

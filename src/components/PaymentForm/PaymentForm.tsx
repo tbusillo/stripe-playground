@@ -12,11 +12,18 @@ import { redirect, useNavigate } from 'react-router-dom';
 import Stripe from 'stripe';
 
 type PaymentFormProps = {
-  clientSecret: string;
+  clientSecret?: string;
 } & React.DetailedHTMLProps<
   React.InputHTMLAttributes<HTMLInputElement>,
   HTMLInputElement
 >;
+
+// interface GetValueFn extends stripeJs.StripeAddressElement {
+//   getValue(): Pick<
+//     stripeJs.StripeAddressElementChangeEvent,
+//     'complete' | 'isNewAddress' | 'value'
+//   >;
+// }
 
 const cardStyle = {
   style: {
@@ -43,7 +50,9 @@ const cardStyle = {
 };
 
 const options = {
-  theme: 'none',
+  // appearance: {
+  //   theme: 'none'
+  // },
   terms: {
     card: 'never'
   }
@@ -62,8 +71,7 @@ export const PaymentForm = ({ clientSecret }: PaymentFormProps) => {
         setError(null);
       }, 5000);
     }
-
-    return;
+    return () => {};
   }, [error]);
 
   const handlePaymentSubmit = async (event: React.FormEvent) => {
@@ -71,6 +79,38 @@ export const PaymentForm = ({ clientSecret }: PaymentFormProps) => {
     event.preventDefault();
     if (!stripe || !elements) {
       return;
+    }
+
+    const address = elements.getElement('address');
+    const card = elements.getElement(CardElement);
+
+    // @ts-expect-error
+    const { complete, value } = await address.getValue();
+    if (complete) {
+      try {
+        const result = await stripe.createPaymentMethod({
+          type: 'card',
+          card: card as stripeJs.StripeCardElement,
+          billing_details: {
+            ...value
+          }
+        });
+        console.log(value, result);
+        if (result.error) {
+          setError(result?.error?.message as string);
+          setLoading(false);
+          return;
+        }
+        if (result.paymentMethod) {
+          console.log('Generate a preview invoice');
+          // Change to confirming, show the preview invoice
+        }
+      } catch (error) {
+        setError((error as any).message);
+        console.log(error);
+        setLoading(false);
+        return;
+      }
     }
 
     const { setupIntent, error } = await stripe.confirmSetup({
@@ -132,7 +172,7 @@ export const PaymentForm = ({ clientSecret }: PaymentFormProps) => {
         />
         <AddressElement
           id='address-element'
-          options={{ mode: 'billing' }}
+          options={{ mode: 'billing', display: { name: 'organization' } }}
           className='w-full mt-4'
         />
         {error && (
@@ -144,7 +184,7 @@ export const PaymentForm = ({ clientSecret }: PaymentFormProps) => {
           </div>
         )}
         <button
-          id='submit'
+          id='submit-button'
           type='submit'
           // disabled={!stripe}
           className='p-2 mt-4 rounded text-base border bg-cyan-500 text-white border-sky-600 block w-full font-medium'

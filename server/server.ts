@@ -3,6 +3,7 @@ import cors from 'cors';
 import { Context } from './types';
 import paymentIntentHandler from './routes/payment-intents';
 import routes from './routes';
+import Stripe from 'stripe';
 
 const createServer = (context: Context): express.Application => {
   console.log('createServer() started');
@@ -35,6 +36,27 @@ const createServer = (context: Context): express.Application => {
     express.raw({ type: 'application/json' }),
     paymentIntentHandler(context)
   );
+
+  app.post('/invoices/preview', async (req: Request, res: Response) => {
+    const { customer, subscription, address } = req.body;
+
+    const params: Stripe.InvoiceRetrieveUpcomingParams = {
+      customer: customer
+    };
+
+    if (subscription) {
+      params.subscription = subscription;
+    }
+    if (address) {
+      params.customer_details = { address };
+    }
+
+    const invoice = await context?.stripe.invoices.retrieveUpcoming({
+      customer,
+      subscription
+    });
+    res.json(invoice);
+  });
 
   app.set('context', context);
 

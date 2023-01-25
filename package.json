@@ -38,7 +38,6 @@
     "@mdx-js/rollup": "^2.1.2",
     "@monaco-editor/react": "^4.4.6",
     "@stripe/react-stripe-js": "^1.16.4",
-    "@stripe/stripe-js": "^1.46.0",
     "@tailwindcss/forms": "^0.5.2",
     "@tailwindcss/typography": "^0.5.2",
     "@teensy/logger": "link:/Users/fatalv1rus/dev/teensy-logger",
